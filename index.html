@@ -1,146 +1,112 @@
- <!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HMARA PRIVÉ — Casino Club</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: #101014;
-      color: #f5f1e8;
-      font-family: Arial, sans-serif;
-    }
-    header {
-      padding: 22px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #39322a;
-    }
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-    .logo span, .gold { color: #d8b46a; }
-    .discord {
-      color: white;
-      background: #5865f2;
-      padding: 12px 16px;
-      border-radius: 9px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    main {
-      width: min(950px, 90%);
-      margin: auto;
-    }
-    .hero {
-      text-align: center;
-      padding: 85px 0 55px;
-    }
-    .eyebrow {
-      color: #d8b46a;
-      letter-spacing: 4px;
-      font-size: 12px;
-    }
-    h1 { font-size: clamp(35px, 7vw, 65px); margin: 20px 0; }
-    h1 span { color: #d8b46a; }
-    .muted { color: #aaa6a0; line-height: 1.7; }
-    .button {
-      display: inline-block;
-      margin-top: 20px;
-      background: #d8b46a;
-      color: #17130d;
-      text-decoration: none;
-      padding: 15px 24px;
-      border-radius: 8px;
-      font-weight: bold;
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-bottom: 45px;
-    }
-    .card {
-      padding: 25px;
-      background: #1b1b22;
-      border: 1px solid #37343a;
-      border-radius: 14px;
-    }
-    .card .symbol { font-size: 30px; }
-    h2 { margin-top: 0; }
-    footer {
-      text-align: center;
-      border-top: 1px solid #39322a;
-      padding: 25px;
-      color: #aaa6a0;
-      font-size: 13px;
-    }
-    @media(max-width: 650px) {
-      header { padding: 18px 5%; }
-      .logo { font-size: 16px; }
-      .discord { font-size: 12px; padding: 10px; }
-      .cards { grid-template-columns: 1fr; }
-      .hero { padding: 60px 0 40px; }
-    }
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HMARA PRIVÉ — Casino Club</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700;800&display=swap');
+:root{--bg:#10131b;--panel:#191e29;--panel2:#222938;--gold:#e6b85c;--gold2:#ffe0a0;--purple:#8c7bff;--muted:#aab1c0;--line:#343d50;--green:#79e0b4;--red:#ff8193}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:radial-gradient(ellipse at 75% -15%,#24304a 0,transparent 36%),radial-gradient(ellipse at 0% 40%,#242039 0,transparent 34%),var(--bg);color:#f7f3e9;font:14px/1.55 'DM Sans',system-ui,sans-serif}button,input{font:inherit}button{cursor:pointer;border:1px solid #7f683a;border-radius:10px;padding:11px 15px;color:#15110a;font-weight:800;background:linear-gradient(120deg,#b9954f,#f8e4a4 50%,#c8a65f);transition:transform .18s,filter .18s,box-shadow .18s;box-shadow:0 6px 22px #d7b56a18}button:hover{filter:brightness(1.1);transform:translateY(-2px);box-shadow:0 8px 28px #d7b56a2a}button.secondary{color:#eee6d5;background:#1b1a1c;border-color:#4c4435;box-shadow:none}button.violet{color:#fff;background:linear-gradient(120deg,#5e3b98,#a57aff);border-color:#9270d0}button.ghost{color:#ddd3be;background:transparent;border-color:#39352d;box-shadow:none}button:disabled{opacity:.45;cursor:not-allowed;transform:none}a{color:inherit;text-decoration:none}.shell{display:grid;grid-template-columns:230px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;border-right:1px solid #302920;padding:25px 16px;background:#09090df0;display:flex;flex-direction:column;z-index:5}.brand{text-align:center;font:800 24px/1.1 'DM Sans',sans-serif;letter-spacing:1px;color:var(--gold2);margin:6px 0 36px}.brand small{display:block;font:700 9px 'DM Sans';letter-spacing:7px;color:#b59b63;margin-top:8px}.nav{display:grid;gap:7px}.nav a{padding:12px;border-radius:9px;color:#aaa5a0;border:1px solid transparent;transition:.2s}.nav a:hover,.nav a.active{color:#fff0c2;background:linear-gradient(90deg,#2b2418,#151317);border-color:#493b26}.nav a.active{box-shadow:inset 3px 0 var(--gold)}.sidebar-bottom{margin-top:auto;border:1px solid #463b29;background:linear-gradient(150deg,#211b12,#111015);border-radius:14px;padding:15px;text-align:center}.crest{font-size:34px;color:var(--gold);text-shadow:0 0 22px #d3ad5b66}.sidebar-bottom p{font-size:12px;color:var(--muted)}.full{width:100%;margin-top:10px}main{min-width:0}.topbar{height:74px;position:sticky;top:0;z-index:4;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:0 28px;border-bottom:1px solid #302920;background:#0a090de8;backdrop-filter:blur(16px)}.toplinks{display:flex;gap:22px;color:#b6b0a7}.toplinks a:hover{color:var(--gold2)}.topright{display:flex;gap:10px;align-items:center}.balance{padding:9px 13px;border:1px solid #65522e;border-radius:9px;background:#18150f;color:var(--gold2);font-weight:800;white-space:nowrap}.mobilebrand{display:none}.wrap{max-width:1550px;margin:auto;padding:25px}.hero{min-height:300px;position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;padding:36px;border:1px solid #68532d;border-radius:18px;background:linear-gradient(110deg,#17130e 0%,#241a11 50%,#130f13 100%)}.hero:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 80% 48%,#c69b4c29,transparent 30%),linear-gradient(90deg,transparent,#fff0b806)}.hero:after{content:"♛";position:absolute;right:8%;top:50%;transform:translateY(-50%) rotate(-8deg);font:220px Cinzel,serif;color:#e7c77820;text-shadow:0 0 55px #d8b45b18}.hero-copy{max-width:620px;position:relative;z-index:1}.eyebrow{color:var(--gold);font-size:10px;letter-spacing:4px;font-weight:800}.hero h1{font:800 clamp(37px,4.5vw,64px)/1.02 'DM Sans',sans-serif;margin:14px 0}.gold{color:var(--gold2)}.hero p{color:#c8c0b3;max-width:500px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:21px}.subline{font-size:11px;color:#9f9789;margin-top:15px}.statsstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:17px 0}.metric{border:1px solid #393126;border-radius:12px;padding:14px 16px;background:linear-gradient(135deg,#161410,#0e0e12)}.metric span{font-size:11px;color:var(--muted)}.metric strong{display:block;font:800 22px 'DM Sans',sans-serif;color:var(--gold2);margin-top:3px}.columns{display:grid;grid-template-columns:minmax(0,1fr) 295px;gap:17px}.panel{min-width:0;border:1px solid #302b25;border-radius:15px;background:linear-gradient(150deg,#131216,#0d0d11);padding:18px;margin-bottom:17px}.head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px}.head h2{font:700 18px 'DM Sans',sans-serif;margin:0;color:#f8edcf}.head p{margin:4px 0 0;color:var(--muted);font-size:12px}.tag{font-size:10px;letter-spacing:1px;border:1px solid #55452b;border-radius:999px;padding:5px 8px;color:var(--gold);white-space:nowrap}.games,.products{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:11px}.tile{position:relative;overflow:hidden;text-align:center;min-width:0;border:1px solid #373027;border-radius:13px;padding:14px 11px;background:linear-gradient(155deg,#211b15,#111115);transition:.2s}.tile:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,#cba85b12,transparent 60%);pointer-events:none}.tile:hover{border-color:#8c7040;transform:translateY(-3px);box-shadow:0 12px 35px #0006}.game-art{height:86px;border-radius:10px;display:grid;place-items:center;margin-bottom:11px;background:radial-gradient(circle,#5a42214d,transparent 68%),linear-gradient(140deg,#282018,#111116);border:1px solid #423625;font-size:43px;text-shadow:0 0 18px #f3d28b33}.tile h3{font-size:13px;margin:0 0 9px}.tile button{width:100%;font-size:11px;padding:9px 4px}.product .game-art{height:68px;font-size:34px}.product p{font-size:11px;color:var(--muted);min-height:30px;margin:0 0 8px}.price{font-weight:900;color:var(--gold2);margin:7px 0 10px}.sidepanel{padding:15px}.profile{display:flex;gap:11px;align-items:center}.avatar{width:47px;height:47px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 25%,#59472b,#201a17);border:1px solid #9e7e43;font-size:23px}.muted{color:var(--muted);font-size:12px}.statrow{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #29241f;font-size:12px}.statrow:last-child{border:0}.rankrow{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #29241f}.rankrow:last-child{border:0}.rankmedal{font-size:19px;width:27px;text-align:center}.rankinfo{flex:1;min-width:0}.rankinfo b{display:block;font-size:12px}.rankinfo small{color:var(--muted);font-size:10px}.rankscore{color:var(--gold2);font-size:12px;font-weight:800;white-space:nowrap}.bonusbox{padding:16px;border:1px solid #64502d;border-radius:13px;background:radial-gradient(ellipse at 90% 0%,#a781342b,transparent 55%),#17140f}.bonusbox h3{font:600 16px Cinzel,serif;margin:0}.timer{font:700 28px Cinzel,serif;color:var(--gold2);letter-spacing:2px;margin:9px 0}.progress{height:5px;border-radius:99px;background:#373027;overflow:hidden;margin:9px 0}.progress>div{height:100%;width:0;background:linear-gradient(90deg,#a77e35,#ffedb1);transition:width .5s}.lower{display:grid;grid-template-columns:1fr 1fr;gap:14px}.footer{text-align:center;padding:22px;color:#79736a;border-top:1px solid #29241f;font-size:11px}.toast{position:fixed;right:20px;bottom:20px;z-index:30;max-width:min(400px,calc(100vw - 40px));padding:14px 17px;border:1px solid #8d7140;border-radius:12px;background:#19150f;box-shadow:0 18px 50px #0009;display:none}.toast.show{display:block;animation:fadeup .2s}.toast.good{border-color:#4d9c79}.toast.bad{border-color:#ad596a}@keyframes fadeup{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+/* Distinct modal treatments */
+.backdrop{display:none;position:fixed;inset:0;z-index:20;background:#030306e8;backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:18px}.backdrop.open{display:flex}.modal{width:min(480px,100%);max-height:91vh;overflow:auto;position:relative;border-radius:18px;padding:22px;background:#141216;border:1px solid #4d402c;box-shadow:0 30px 110px #000c;animation:fadeup .18s}.modalhead{display:flex;justify-content:space-between;align-items:center;gap:12px}.modal h2{font:600 21px Cinzel,serif;margin:0}.close{background:#211e1c;border:1px solid #454039;color:#e9dfc8;padding:5px 10px;box-shadow:none}.modalbody{margin:16px 0;color:#d2cabc}.modalactions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.modalactions button{flex:1}.fine{font-size:11px;color:#9d9688;margin-top:13px}.field{display:grid;gap:6px;margin:12px 0}.field input{padding:11px;border:1px solid #453b2c;border-radius:9px;background:#0c0b0e;color:#fff}.modal.jackpot{border-color:#a78643;background:radial-gradient(ellipse at 50% 0%,#6a4b1d55,transparent 55%),#15120e;text-align:center}.modal.jackpot h2{color:var(--gold2);font-size:24px}.modal.shopmodal{border-color:#554082;background:radial-gradient(ellipse at 100% 0%,#5c34852e,transparent 50%),#121018}.modal.profilemodal{border-color:#476858;background:radial-gradient(ellipse at 0 0,#29584332,transparent 55%),#101512}.modal.rankmodal{border-color:#87703f;background:linear-gradient(145deg,#1d190f,#100f12)}.modal.supportmodal{border-color:#3f5978;background:radial-gradient(ellipse at 100% 0%,#284b6b3b,transparent 50%),#101217}.modal.discordmodal{border-color:#6260a4;background:radial-gradient(ellipse at 100% 0%,#4e4aa838,transparent 50%),#111019}.modal.rulesmodal{border-color:#574a36;background:#13120f}
+.modal{animation:modalIn .32s cubic-bezier(.2,.8,.2,1)}@keyframes modalIn{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}.game-bet{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin:14px 0 8px;padding:12px;border:1px solid #343d50;border-radius:12px;background:#101622}.game-bet label{font-size:12px;color:#b9c2d3;font-weight:700}.game-bet select,.game-bet input{background:#20293a;color:#fff;border:1px solid #53617a;border-radius:8px;padding:9px;min-width:100px}.game-bet input[type=number]{width:130px}.bet-tools{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:8px}.bet-tools button{padding:7px 10px;font-size:12px;background:#252e40;color:#f0f3fa;border:1px solid #45516a;box-shadow:none}.bet-tools button:hover{border-color:#e6b85c}.game-bet .bet-chip{padding:7px 10px;border-radius:8px;font-size:12px;background:#252e40;color:#f0f3fa;border:1px solid #45516a;box-shadow:none}.game-bet .bet-chip.active{background:#e6b85c;color:#21190b;border-color:#ffe0a0}.slotmachine{display:flex;justify-content:center;gap:8px;margin:18px auto;padding:14px;border:2px solid #94733b;border-radius:15px;background:linear-gradient(180deg,#292015,#0a0909);box-shadow:inset 0 0 22px #000,0 0 22px #d8b25b18;max-width:340px}.reel{width:78px;height:88px;display:grid;place-items:center;background:linear-gradient(180deg,#fff7db,#d9cba9 45%,#fff3ce);color:#1c1510;border-radius:9px;border:2px solid #7d6332;font-size:43px;overflow:hidden;box-shadow:inset 0 0 10px #7b5d2a}.reel.spinning{animation:reelblur .12s linear infinite;box-shadow:inset 0 0 12px #7b5d2a,0 0 16px #e6b85c55}@keyframes reelblur{0%{filter:blur(0);transform:translateY(-2px)}50%{filter:blur(2px);transform:translateY(2px)}100%{filter:blur(0);transform:translateY(-1px)}}.slot-controls{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}.roulette-wheel{width:170px;height:170px;border-radius:50%;margin:15px auto;display:grid;place-items:center;border:7px ridge #b7944e;background:repeating-conic-gradient(#7a1726 0 10deg,#141319 10deg 20deg,#286448 20deg 30deg);box-shadow:0 0 25px #c8a05230;transition:transform 2.3s cubic-bezier(.12,.72,.16,1)}.wheelcenter{width:65px;height:65px;border-radius:50%;display:grid;place-items:center;background:#d6b66c;color:#19130b;border:5px ridge #795c2d;font-size:24px}.diceart{display:flex;justify-content:center;gap:15px;margin:20px}.die{width:74px;height:74px;display:grid;place-items:center;font-size:54px;background:#f4e9ce;border:2px solid #c5a45e;border-radius:15px;color:#201912;box-shadow:0 8px 0 #72562b;animation:diein .25s}@keyframes diein{from{transform:rotate(25deg) scale(.5)}to{transform:rotate(0) scale(1)}}.coinart{width:125px;height:125px;margin:20px auto;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 25%,#fff0b2,#c0943e 58%,#77551e);border:7px ridge #e6c875;color:#2a1b0a;font:700 31px Cinzel,serif;box-shadow:0 0 35px #d2a64b30}.coinart.flip{animation:flip .65s ease-in-out}@keyframes flip{0%{transform:rotateY(0) scale(1)}50%{transform:rotateY(900deg) scale(.75)}100%{transform:rotateY(1800deg) scale(1)}}.blackjack-table{padding:20px 12px;border:2px solid #9b7c42;border-radius:70px 70px 20px 20px;background:radial-gradient(ellipse,#175c42,#073222 70%);text-align:center;color:#f9e8b7}.cards{display:flex;justify-content:center;gap:7px;margin:10px}.playingcard{width:45px;height:64px;border-radius:6px;background:#f7f0de;color:#241c16;display:grid;place-items:center;font-size:18px;font-weight:900}.playingcard.red{color:#b52135}
+@media(max-width:1120px){.columns{grid-template-columns:1fr}.rightcol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.rightcol .panel{margin:0}.games,.products{grid-template-columns:repeat(3,minmax(0,1fr))}.toplinks{gap:12px}.statsstrip{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.shell{display:block}.sidebar{display:none}.topbar{height:64px;padding:0 12px}.mobilebrand{display:block;font:700 14px Cinzel,serif;color:var(--gold2)}.toplinks{display:none}.topright{gap:6px}.topright button{font-size:10px;padding:8px}.balance{font-size:11px;padding:8px}.wrap{padding:12px}.hero{padding:24px 18px;min-height:300px}.hero:after{right:2%;font-size:140px;opacity:.65}.hero-copy{max-width:100%}.games,.products{grid-template-columns:repeat(2,minmax(0,1fr))}.rightcol{display:grid;grid-template-columns:1fr}.lower{grid-template-columns:1fr}.panel{padding:13px}.head h2{font-size:16px}.metric strong{font-size:19px}.reel{width:67px;height:78px;font-size:37px}}
+</style>
 </head>
-<body>
-  <header>
-    <div class="logo">HMARA <span>PRIVÉ</span></div>
-    <a class="discord" href="https://hmara-casino-eq5f.onrender.com/auth/discord" target="_blank" rel="noopener">
-      Rejoindre Discord
-    </a>
-  </header>
-
-  <main>
-    <section class="hero">
-      <p class="eyebrow">BIENVENUE DANS LE CLUB</p>
-      <h1>HMARA <span>PRIVÉ</span></h1>
-      <p class="muted">
-        Un club privé. Une communauté. Un classement.
-        <br>Tout ton univers HMARA au même endroit.
-      </p>
-      <a class="button" href="https://hmara-casino-eq5f.onrender.com/auth/discord" target="_blank" rel="noopener">
-        Entrer dans le club
-      </a>
-    </section>
-
-    <section class="cards">
-      <article class="card">
-        <div class="symbol">♛</div>
-        <h2 class="gold">Le classement</h2>
-        <p class="muted">Retrouve les meilleurs membres du club.</p>
-      </article>
-      <article class="card">
-        <div class="symbol">◈</div>
-        <h2 class="gold">Ton profil</h2>
-        <p class="muted">Un espace personnel pour les membres HMARA.</p>
-      </article>
-      <article class="card">
-        <div class="symbol">✦</div>
-        <h2 class="gold">La boutique</h2>
-        <p class="muted">Découvre les objets et récompenses virtuels.</p>
-      </article>
-    </section>
-
-    <section class="card" style="text-align:center;margin-bottom:45px">
-      <h2>Le club t'attend</h2>
-      <p class="muted">
-        Rejoins la communauté HMARA PRIVÉ sur Discord.
-      </p>
-      <a class="button" href="https://hmara-casino-eq5f.onrender.com/auth/discord" target="_blank" rel="noopener">
-        Rejoindre la communauté
-      </a>
-    </section>
-  </main>
-
-  <footer>
-    HMARA PRIVÉ · Club communautaire · Expérience virtuelle
-  </footer>
-</body>
-</html>
+<body><div class="shell">
+<aside class="sidebar"><div class="brand">HMARA<small>PRIVATE CLUB</small></div><nav class="nav"><a class="active" href="#accueil" data-nav>♛　Accueil</a><a href="#jeux" data-nav>✧　Les jeux</a><a href="#boutique" data-nav>◇　Boutique privée</a><a href="#classement" data-nav>♜　Classement</a><a href="#" data-modal="rules">♧　Le règlement</a><a href="#" data-modal="support">✉　Conciergerie</a></nav><div class="sidebar-bottom"><div class="crest">♛</div><b>Le club vous attend</b><p>Rejoignez la communauté Hmara sur Discord.</p><button class="full" onclick="openModal('discord')">Accéder au club</button></div></aside>
+<main><header class="topbar"><div class="mobilebrand">♛ HMARA <span style="color:#b59b63">PRIVATE</span></div><nav class="toplinks"><a href="#accueil" data-nav>Accueil</a><a href="#jeux" data-nav>Les jeux</a><a href="#boutique" data-nav>Boutique</a><a href="#classement" data-nav>Classement</a></nav><div class="topright"><div class="balance">✦ <span id="topCoins">10 000</span></div><button onclick="openModal('profile')">Mon espace ↗</button></div></header>
+<div class="wrap" id="accueil">
+<section class="hero"><div class="hero-copy"><div class="eyebrow">UN CLUB. UNE AUTRE DIMENSION.</div><h1>HMARA<br><span class="gold">PRIVATE CLUB</span></h1><p>Une expérience de jeu privée pour la communauté. Lancez les jeux, accumulez des jetons et découvrez les privilèges du club.</p><div class="actions"><button onclick="goTo('jeux')">Entrer dans la salle ✦</button><button class="secondary" onclick="goTo('boutique')">Explorer les privilèges</button></div><div class="subline">✧ Jetons virtuels · Expérience communautaire · Aucun gain en argent réel</div></div></section>
+<div class="statsstrip"><div class="metric"><span>VOTRE SOLDE</span><strong id="metricCoins">10 000</strong></div><div class="metric"><span>PARTIES JOUÉES</span><strong id="metricPlayed">0</strong></div><div class="metric"><span>VICTOIRES</span><strong id="metricWins">0</strong></div><div class="metric"><span>VOTRE POSITION</span><strong id="metricRank">—</strong></div></div>
+<div class="columns"><div>
+<section class="panel" id="jeux"><div class="head"><div><h2>Les salons de jeu</h2><p>Chaque table a son ambiance. Choisissez votre expérience.</p></div><span class="tag">ARCADE PRIVÉE</span></div><div class="games">
+<div class="tile"><div class="game-art">🎰</div><h3>Le Grand Jackpot</h3><button onclick="openGame('slots')">Jouer</button></div>
+<div class="tile"><div class="game-art">🎡</div><h3>La Roulette Royale</h3><button onclick="openGame('roulette')">Jouer</button></div>
+<div class="tile"><div class="game-art">🎲</div><h3>Les Dés d'Or</h3><button onclick="openGame('dice')">Jouer</button></div>
+<div class="tile"><div class="game-art">🃏</div><h3>Blackjack Club</h3><button onclick="openGame('blackjack')">Jouer</button></div>
+<div class="tile"><div class="game-art">🪙</div><h3>Face à Face</h3><button onclick="openGame('coin')">Jouer</button></div>
+</div></section>
+<section class="panel" id="boutique"><div class="head"><div><h2>La boutique privée</h2><p>Privilèges et accès spéciaux pour les membres du club.</p></div><span class="tag">ÉDITION CLUB</span></div><div class="products">
+<div class="tile product"><div class="game-art">🛡️</div><h3>Rôle Kicker</h3><p>Privilège communautaire</p><div class="price">✦ 2 000</div><button onclick="buy('Rôle Kicker',2000)">Découvrir</button></div>
+<div class="tile product"><div class="game-art">⛔</div><h3>Ban · 2 min</h3><p>Action soumise aux permissions</p><div class="price">✦ 5 000</div><button onclick="buy('Ban · 2 min',5000)">Découvrir</button></div>
+<div class="tile product"><div class="game-art">🔇</div><h3>Mute · 2 min</h3><p>Silence temporaire</p><div class="price">✦ 2 000</div><button onclick="buy('Mute · 2 min',2000)">Découvrir</button></div>
+<div class="tile product"><div class="game-art">🎧</div><h3>Mute casque</h3><p>Option vocale à configurer</p><div class="price">✦ 3 000</div><button onclick="buy('Mute casque',3000)">Découvrir</button></div>
+<div class="tile product"><div class="game-art">👑</div><h3>Rôle VIP</h3><p>Statut exclusif du club</p><div class="price">✦ 10 000</div><button onclick="buy('Rôle VIP',10000)">Découvrir</button></div>
+</div><p class="fine">Prototype : la commande d'achat est simulée. Aucun rôle Discord ou sanction n'est appliqué.</p></section>
+<div class="lower"><section class="bonusbox"><h3>Le rituel des 6 heures</h3><p class="muted">Un cadeau du club toutes les six heures.</p><div class="timer" id="bonusTimer">06:00:00</div><div class="progress"><div id="bonusProgress"></div></div><p class="muted" id="bonusStatus">Prochain cadeau : 500 jetons</p><button id="bonusButton" class="full" onclick="claimBonus()">Réclamer le cadeau ✦</button></section>
+<section class="panel" id="classement" style="margin:0"><div class="head"><div><h2>Le palmarès</h2><p>Classement local de ce navigateur</p></div><span class="tag">LIVE LOCAL</span></div><div id="leaderMini"></div><button class="secondary full" onclick="openModal('leaderboard')">Ouvrir le palmarès complet</button><p class="fine">Pour un classement partagé entre tous les membres, un serveur et une base de données seront nécessaires.</p></section></div>
+<section class="panel" id="regles"><div class="head"><div><h2>Charte du club</h2><p>Un jeu convivial, transparent et responsable.</p></div><button class="ghost" onclick="openModal('rules')">Lire la charte</button></div><p class="muted">Les jetons sont fictifs, sans valeur monétaire et non convertibles en argent réel. Les fonctions Discord et les actions de modération nécessitent une intégration serveur sécurisée.</p></section>
+</div><aside class="rightcol">
+<section class="panel sidepanel"><div class="profile"><div class="avatar" id="avatar">♙</div><div><b id="username">Invité du club</b><div class="muted" id="profileCaption">Votre espace privé</div></div></div><button class="full" onclick="openModal('profile')">Ouvrir mon espace ↗</button></section>
+<section class="panel sidepanel"><div class="head"><div><h2>Votre fiche</h2></div></div><div class="statrow"><span>Jetons</span><b class="gold" id="sideCoins">10 000</b></div><div class="statrow"><span>Parties</span><b id="sidePlayed">0</b></div><div class="statrow"><span>Victoires</span><b id="sideWins">0</b></div><div class="statrow"><span>Rang local</span><b id="sideRank">—</b></div></section>
+<section class="panel sidepanel"><div class="head"><div><h2>Les membres remarqués</h2><p>Exemples visuels du club</p></div></div><div class="rankrow"><span class="rankmedal">🥇</span><div class="rankinfo"><b>Skyz</b><small>Membre émérite</small></div><span class="rankscore">245k ✦</span></div><div class="rankrow"><span class="rankmedal">🥈</span><div class="rankinfo"><b>Noxx</b><small>Habitué du club</small></div><span class="rankscore">198k ✦</span></div><div class="rankrow"><span class="rankmedal">🥉</span><div class="rankinfo"><b>LeBG</b><small>Joueur confirmé</small></div><span class="rankscore">176k ✦</span></div></section>
+<section class="panel sidepanel"><div class="head"><div><h2>Conciergerie</h2><p>Une question ?</p></div></div><p class="muted">Notre espace d'assistance vous guide vers les bonnes informations.</p><button class="secondary full" onclick="openModal('support')">Contacter le support</button></section>
+</aside></div></div>
+<footer class="footer">HMARA PRIVATE CLUB · Prototype interactif · Jetons fictifs · Pas de gains en argent réel</footer></main></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="backdrop" id="backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal" id="modal"><div class="modalhead"><h2 id="modalTitle">HMARA</h2><button class="close" onclick="closeModal()" aria-label="Fermer">✕</button></div><div class="modalbody" id="modalBody"></div><div class="modalactions" id="modalActions"></div></div></div>
+<script>
+const $=id=>document.getElementById(id),fmt=n=>Math.floor(n).toLocaleString('fr-FR');
+function num(k,d){const v=localStorage.getItem(k);return v===null?d:Math.max(0,Number(v)||0)}
+let coins=num('hm3coins',10000),wins=num('hm3wins',0),played=num('hm3played',0),lastGame='slots',purchase=null,spinning=false,rouletteTurns=0,selectedBet=100;
+let username=localStorage.getItem('hm3name')||'Invité du club';
+function save(){['hm3coins','hm3wins','hm3played'].forEach((k,i)=>localStorage.setItem(k,[coins,wins,played][i]));render()}
+function render(){const rank=played?'#'+Math.max(1,101-wins*2):'—';['topCoins','metricCoins','sideCoins'].forEach(id=>$(id).textContent=fmt(coins));['metricPlayed','sidePlayed'].forEach(id=>$(id).textContent=played);['metricWins','sideWins'].forEach(id=>$(id).textContent=wins);['metricRank','sideRank'].forEach(id=>$(id).textContent=rank);$('username').textContent=username;let betBalance=$('betAvailable');if(betBalance)betBalance.textContent=fmt(coins)+' ✦';$('profileCaption').textContent=username==='Invité du club'?'Votre espace privé':'Membre local';$('leaderMini').innerHTML=leaderboard().slice(0,3).map((p,i)=>rankRow(p,i)).join('')}
+let toastTimer;function toast(s,type=''){let t=$('toast');t.textContent=s;t.className='toast show '+type;clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),4000)}
+function goTo(id){$(id)?.scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('[data-nav]').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+id))}
+document.querySelectorAll('[data-nav]').forEach(a=>a.addEventListener('click',()=>setTimeout(()=>goTo(a.getAttribute('href').slice(1)),0)));
+document.querySelectorAll('[data-modal]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();openModal(a.dataset.modal)}));
+function leaderboard(){let arr=JSON.parse(localStorage.getItem('hm3players')||'[]');arr=arr.filter(p=>p&&p.name&&p.name!==username&&!['Skyz','Noxx','LeBG'].includes(p.name));arr.push({name:username,coins,wins,played,score:coins+wins*300});return arr.sort((a,b)=>b.score-a.score)}
+function rankRow(p,i){return `<div class="rankrow"><span class="rankmedal">${['🥇','🥈','🥉','④','⑤'][i]||'♙'}</span><div class="rankinfo"><b>${esc(p.name)}</b><small>${p.wins} victoires · ${p.played} parties</small></div><span class="rankscore">${fmt(p.score)} ✦</span></div>`}
+function claimBonus(){const now=Date.now(),last=Number(localStorage.getItem('hm3bonus')||0),remaining=6*60*60*1000-(now-last);if(remaining>0){toast('Le cadeau revient dans '+clock(remaining)+'.','bad');return}coins+=500;localStorage.setItem('hm3bonus',String(now));save();updateBonus();toast('Cadeau du club récupéré : +500 jetons !','good')}
+function clock(ms){let s=Math.max(0,Math.ceil(ms/1000)),h=Math.floor(s/3600),m=Math.floor(s%3600/60),ss=s%60;return [h,m,ss].map(v=>String(v).padStart(2,'0')).join(':')}
+function updateBonus(){let last=Number(localStorage.getItem('hm3bonus')||0),cycle=6*60*60*1000,remaining=Math.max(0,cycle-(Date.now()-last)),ready=remaining===0;$('bonusTimer').textContent=clock(remaining);$('bonusButton').disabled=!ready;$('bonusButton').textContent=ready?'Réclamer le cadeau ✦':'Reviens dans '+clock(remaining);$('bonusStatus').textContent=ready?'Ton cadeau de 500 jetons est disponible.':'Le prochain cadeau sera disponible à la fin du compte à rebours.';$('bonusProgress').style.width=(100-remaining/cycle*100)+'%'}
+setInterval(updateBonus,1000);
+const gameNames={slots:'Le Grand Jackpot',roulette:'La Roulette Royale',dice:'Les Dés d’Or',blackjack:'Blackjack Club',coin:'Face à Face'};
+function openGame(g){if(spinning)return;lastGame=g;openModal('gameSetup');$('modal').classList.add('gamesetup');$('modalTitle').textContent=gameNames[g]||'Choisir sa mise';$('modalBody').innerHTML=`<p>Choisis ta mise avant de lancer la partie.</p><div class="game-bet" style="margin:16px 0;flex-direction:column"><label for="setupBet">ÉCRIS TA MISE</label><input id="setupBet" type="number" min="1" step="1" max="${coins}" value="${selectedBet}" oninput="setBet(this.value)" placeholder="Ex. 10000" style="width:180px;text-align:center;font-size:18px;font-weight:800"><div class="bet-tools"><button type="button" onclick="adjustBet(100,'setupBet')">+100</button><button type="button" onclick="adjustBet(1000,'setupBet')">+1 000</button><button type="button" onclick="adjustBet(10000,'setupBet')">+10 000</button><button type="button" onclick="adjustBet(-100,'setupBet')">−100</button></div><span class="fine">Maximum : ton solde disponible</span></div><div class="statrow"><span>Solde disponible</span><b class="gold">${fmt(coins)} ✦</b></div><div class="statrow"><span>Mise choisie</span><b class="gold" id="setupBetLabel">${fmt(selectedBet)} ✦</b></div><p class="fine">Les jetons sont fictifs. Rien ne sera retiré avant d’appuyer sur « Lancer la partie ».</p>`;$('modalActions').innerHTML=`<button class="secondary" onclick="closeModal()">Annuler</button><button onclick="startGame()">Lancer la partie · ${fmt(selectedBet)} ✦</button>`;$('backdrop').classList.add('open')}
+function startGame(){const sel=$('setupBet');if(sel)setBet(sel.value);if(selectedBet<1){toast('Entre une mise supérieure à 0.','bad');return}if(coins<selectedBet){toast('Vous n’avez pas assez de jetons pour cette mise.','bad');return}const g=lastGame;coins-=selectedBet;played++;save();if(g==='slots')slotGame();else if(g==='roulette')rouletteGame();else if(g==='dice')diceGame();else if(g==='coin')coinGame();else blackjackGame()}
+function play(g){lastGame=g;startGame()}
+function settle(gain,win){coins+=gain;if(win)wins++;save()}
+function betControls(){return `<div class="game-bet"><label for="betSelect">MISE</label><input id="betSelect" type="number" min="1" step="1" max="${coins}" value="${selectedBet}" oninput="setBet(this.value)" style="width:130px;text-align:center"><div class="bet-tools"><button type="button" onclick="adjustBet(100,'betSelect')">+100</button><button type="button" onclick="adjustBet(1000,'betSelect')">+1 000</button><button type="button" onclick="adjustBet(10000,'betSelect')">+10 000</button><button type="button" onclick="adjustBet(-100,'betSelect')">−100</button></div><span class="fine">Solde : <b id="betAvailable">${fmt(coins)} ✦</b></span></div>`}
+function setBet(v){let raw=String(v??'').trim();let n=raw===''?0:Number(raw);if(!Number.isFinite(n))n=0;n=Math.floor(Math.max(0,Math.min(coins,n)));selectedBet=n;let b=$('betAvailable');if(b)b.textContent=fmt(coins)+' ✦';let label=$('setupBetLabel');if(label)label.textContent=fmt(selectedBet)+' ✦';let setup=$('setupBet');if(setup&&setup.value!==String(n))setup.value=raw===''?'':String(n);let inline=$('betSelect');if(inline&&inline.value!==String(n))inline.value=raw===''?'':String(n);let launch=$('modalActions')?.querySelector('button:last-child');if(launch&&launch.textContent.includes('Lancer la partie'))launch.textContent='Lancer la partie · '+fmt(selectedBet)+' ✦';document.querySelectorAll('#modalActions button').forEach(b=>{if(/Rejouer|Tourner encore|Relancer|Nouvelle main/.test(b.textContent))b.textContent=b.textContent.replace(/·.*$/,'· '+fmt(selectedBet)+' ✦')})}
+function adjustBet(delta,id){const el=$(id);const current=Number(el?.value)||0;const next=Math.max(1,Math.min(coins,current+delta));if(el)el.value=String(next);setBet(next)}
+function slotGame(){spinning=true;openModal('slots');const symbols=['🍒','🍋','💎','7️⃣','🔔','🍀'];let reels=[$('reel0'),$('reel1'),$('reel2')];let rollers=reels.map(r=>setInterval(()=>{r.textContent=symbols[Math.floor(Math.random()*symbols.length)]},75));reels.forEach(r=>{r.classList.add('spinning');r.textContent=symbols[Math.floor(Math.random()*symbols.length)]});let stops=[850,1550,2250];stops.forEach((t,i)=>setTimeout(()=>{clearInterval(rollers[i]);reels[i].classList.remove('spinning');reels[i].textContent=symbols[Math.floor(Math.random()*symbols.length)];if(i===2){let vals=reels.map(r=>r.textContent),gain=0,txt='Pas de combinaison cette fois.';if(vals[0]===vals[1]&&vals[1]===vals[2]){gain=selectedBet*12;txt='JACKPOT TRIPLE ! +'+fmt(gain)+' jetons';}else if(new Set(vals).size<3){gain=Math.round(selectedBet*2.5);txt='Belle combinaison ! +'+fmt(gain)+' jetons';}settle(gain,gain>100);$('slotResult').textContent=txt;$('slotResult').style.color=gain?'#fff0b8':'#c3baaa';$('slotBalance').textContent='Solde : '+fmt(coins)+' jetons';spinning=false}},t))}
+function rouletteGame(){openModal('roulette');const wheel=$('wheel');rouletteTurns+=1;wheel.style.transform=`rotate(${rouletteTurns*1440+Math.floor(Math.random()*360)}deg)`;setTimeout(()=>{let n=Math.floor(Math.random()*37),gain=n===0?selectedBet*8:n%2===0?Math.round(selectedBet*1.8):0;settle(gain,gain>100);$('rouletteResult').textContent=n===0?'ZÉRO VERT · +800 jetons':n%2===0?`NUMÉRO ${n} · Gagné +180 jetons`:`NUMÉRO ${n} · Pas de gain cette fois`; $('rouletteBalance').textContent='Solde : '+fmt(coins)+' jetons';$('rouletteSpin').disabled=false},2350);$('rouletteSpin').disabled=true}
+function diceGame(){openModal('dice');$('die1').textContent='⚄';$('die2').textContent='⚄';setTimeout(()=>{let a=1+Math.floor(Math.random()*6),b=1+Math.floor(Math.random()*6),faces=['⚀','⚁','⚂','⚃','⚄','⚅'],gain=a+b>=9?selectedBet*3:0;$('die1').textContent=faces[a-1];$('die2').textContent=faces[b-1];settle(gain,gain>100);$('diceResult').textContent=gain?`Total ${a+b} · +300 jetons`:`Total ${a+b} · Essayez encore`;$('diceBalance').textContent='Solde : '+fmt(coins)+' jetons'},450)}
+function coinGame(){openModal('coin');let art=$('coinart');art.classList.remove('flip');void art.offsetWidth;art.classList.add('flip');setTimeout(()=>{let won=Math.random()>.5,gain=won?selectedBet*1.8:0;art.textContent=won?'PILE':'FACE';settle(gain,gain>100);$('coinResult').textContent=won?'Pile ! +180 jetons':'Face… la prochaine sera peut-être la bonne';$('coinBalance').textContent='Solde : '+fmt(coins)+' jetons'},700)}
+function blackjackGame(){openModal('blackjack');let a=2+Math.floor(Math.random()*10),b=2+Math.floor(Math.random()*10),gain=a>b?selectedBet*2:a===b?selectedBet:0;setTimeout(()=>{ $('playerCards').innerHTML=card(a)+card(2+Math.floor(Math.random()*10));$('dealerCards').innerHTML=card(b)+card(2+Math.floor(Math.random()*10));settle(gain,gain>100);$('blackjackResult').textContent=a>b?'Vous remportez la main · +200 jetons':a===b?'Égalité · mise rendue':'Le croupier remporte cette main';$('blackjackBalance').textContent='Solde : '+fmt(coins)+' jetons'},450)}
+function card(n){let symbols=['♠','♥','♦','♣'],s=symbols[Math.floor(Math.random()*4)];return `<div class="playingcard ${s==='♥'||s==='♦'?'red':''}">${n}${s}</div>`}
+function buy(name,cost){purchase={name,cost};openModal('shopBuy')}
+function openModal(type){let modal=$('modal'),title='',body='',actions=[];modal.className='modal';
+if(type==='gameSetup'){title='CHOISIR SA MISE';body='';actions=[]}
+else if(type==='slots'){modal.classList.add('jackpot');title='LE GRAND JACKPOT';body=`<p style="color:#c8b994">Trois rouleaux. Une seule combinaison gagnante.</p><div class="slotmachine"><div class="reel" id="reel0">🍒</div><div class="reel" id="reel1">7️⃣</div><div class="reel" id="reel2">💎</div></div><h3 id="slotResult" style="min-height:26px;color:#fff0b8">Les rouleaux tournent…</h3><p id="slotBalance" class="muted">Mise sélectionnée</p><div class="fine">Triple identique : x12 la mise · Paire : x2,5 la mise</div>`;actions=[['Fermer','closeModal()','secondary'],['Rejouer · '+fmt(selectedBet)+' ✦','replay()']]}
+else if(type==='roulette'){modal.classList.add('jackpot');title='LA ROULETTE ROYALE';body=`<p style="color:#c8b994">Laissez tourner la roue du club.</p><div class="roulette-wheel" id="wheel"><div class="wheelcenter">♛</div></div><h3 id="rouletteResult" style="min-height:26px;color:#fff0b8">La roue tourne…</h3><p id="rouletteBalance" class="muted">Mise sélectionnée</p>`;actions=[['Fermer','closeModal()','secondary'],['Tourner encore · '+fmt(selectedBet)+' ✦','replay()']]}
+else if(type==='dice'){title='LES DÉS D’OR';body=`<p>Les deux dés décident de votre fortune.</p><div class="diceart"><div class="die" id="die1">⚄</div><div class="die" id="die2">⚄</div></div><h3 id="diceResult" style="text-align:center;color:#fff0b8">Les dés roulent…</h3><p id="diceBalance" class="muted" style="text-align:center">Mise sélectionnée · Total de 9 ou plus : +300</p>`;actions=[['Fermer','closeModal()','secondary'],['Relancer · '+fmt(selectedBet)+' ✦','replay()']]}
+else if(type==='coin'){title='FACE À FACE';body=`<p>Choisissez votre destin : pile ou face.</p><div class="coinart" id="coinart">HM</div><h3 id="coinResult" style="text-align:center;color:#fff0b8">La pièce s’envole…</h3><p id="coinBalance" class="muted" style="text-align:center">Mise sélectionnée</p>`;actions=[['Fermer','closeModal()','secondary'],['Relancer · '+fmt(selectedBet)+' ✦','replay()']]}
+else if(type==='blackjack'){title='BLACKJACK CLUB';body=`<div class="blackjack-table"><div>CROUPIER</div><div class="cards" id="dealerCards"><div class="playingcard">?</div><div class="playingcard">?</div></div><div style="font-size:10px;letter-spacing:2px">VS</div><div class="cards" id="playerCards"><div class="playingcard">?</div><div class="playingcard">?</div></div><div>VOTRE MAIN</div></div><h3 id="blackjackResult" style="text-align:center;color:#fff0b8">Les cartes sont distribuées…</h3><p id="blackjackBalance" class="muted" style="text-align:center">Mise sélectionnée</p><p class="fine">Version arcade simplifiée, sans argent réel.</p>`;actions=[['Fermer','closeModal()','secondary'],['Nouvelle main · 100 ✦','replay()']]}
+else if(type==='shopBuy'){modal.classList.add('shopmodal');title='PRIVILÈGE DU CLUB';if(!purchase){closeModal();return}body=`<div style="font-size:45px;text-align:center;color:#d6b66c">♛</div><p>Vous avez sélectionné :</p><div style="padding:15px;border:1px solid #4b3a65;border-radius:12px;background:#17131e"><b>${esc(purchase.name)}</b><div class="gold" style="font-weight:900;margin-top:6px">✦ ${fmt(purchase.cost)} jetons</div></div><p>Solde après achat : <b class="gold">${fmt(coins-purchase.cost)} jetons</b></p><p class="fine">Cette confirmation simule un achat local. Aucun rôle Discord ou bannissement ne sera appliqué.</p>`;actions=[['Annuler','closeModal()','secondary'],['Confirmer l’achat','confirmBuy()']]}
+else if(type==='profile'){modal.classList.add('profilemodal');title='VOTRE ESPACE PRIVÉ';body=`<div style="text-align:center;padding:10px"><div style="font-size:55px;color:#b8e5c9">♙</div><h3 style="margin:4px 0">${esc(username)}</h3><p class="muted">Profil local · Ce navigateur uniquement</p></div><div class="statrow"><span>Solde</span><b class="gold">${fmt(coins)} ✦</b></div><div class="statrow"><span>Parties jouées</span><b>${played}</b></div><div class="statrow"><span>Victoires</span><b>${wins}</b></div><div class="field"><label for="nameInput">Modifier votre pseudo local</label><input id="nameInput" maxlength="20" value="${esc(username==='Invité du club'?'':username)}" placeholder="Votre pseudo"></div><p class="fine">Ce pseudo n’est pas vérifié par Discord et n’est visible que dans ce navigateur.</p>`;actions=[['Fermer','closeModal()','secondary'],['Enregistrer le pseudo','saveName()']]}
+else if(type==='leaderboard'){modal.classList.add('rankmodal');title='LE PALMARÈS DU CLUB';body=`<p class="muted">Classé par jetons et victoires · votre profil sur cet appareil</p><div>${leaderboard().map((p,i)=>rankRow(p,i)).join('')}</div><p class="fine">Aucun faux joueur n’est affiché. Le classement est local à ce navigateur pour le moment.</p>`;actions=[['Fermer','closeModal()','secondary'],['Actualiser','refreshBoard()']]}
+else if(type==='discord'){modal.classList.add('discordmodal');title='REJOINDRE LE CLUB';body=`<div style="font-size:48px;text-align:center;color:#b6a9ff">◈</div><p>La connexion Discord OAuth2 n’est pas encore configurée sur ce prototype.</p><p>Pour l’activer, il faudra créer une application Discord et configurer un serveur sécurisé. Ne saisissez jamais votre mot de passe ou votre jeton Discord ici.</p><div class="field"><label for="inviteInput">Lien d’invitation Discord (facultatif)</label><input id="inviteInput" placeholder="https://discord.gg/…"></div><p class="fine">Le lien sera ouvert seulement après votre confirmation.</p>`;actions=[['Fermer','closeModal()','secondary'],['Enregistrer le lien','saveInvite()']]}
+else if(type==='support'){modal.classList.add('supportmodal');title='CONCIERGERIE PRIVÉE';body=`<p>Notre conciergerie vous aide à préparer une demande. Aucun message ne sera envoyé sans votre action.</p><div class="field"><label for="supportSubject">Sujet</label><input id="supportSubject" placeholder="Ex. : achat non reçu"></div><div class="field"><label for="supportMessage">Votre message</label><input id="supportMessage" placeholder="Décrivez votre demande"></div><p class="fine">L’envoi automatique n’est pas encore relié à Discord.</p>`;actions=[['Fermer','closeModal()','secondary'],['Préparer la demande','prepareSupport()']]}
+else if(type==='supportPreview'){modal.classList.add('supportmodal');title='DEMANDE PRÉPARÉE';let m=JSON.parse(sessionStorage.getItem('hm3support')||'{}');body=`<p>Voici le brouillon. Il n’a pas été envoyé.</p><div style="border:1px solid #3f5978;border-radius:10px;padding:13px"><b>${esc(m.subject||'Demande')}</b><p style="white-space:pre-wrap">${esc(m.message||'')}</p></div>`;actions=[['Fermer','closeModal()','secondary'],['Copier le brouillon','copySupport()']]}
+else if(type==='rules'){modal.classList.add('rulesmodal');title='CHARTE DU CLUB';body=`<ul><li>Les jetons sont fictifs, sans valeur monétaire.</li><li>Ne partagez jamais vos mots de passe ou jetons de connexion.</li><li>Les achats de ce prototype sont simulés.</li><li>Les actions de modération doivent être limitées aux permissions autorisées et journalisées.</li><li>Les classements de cette version ne sont pas partagés entre appareils.</li></ul>`;actions=[['J’ai compris','closeModal()']]}
+$('modalTitle').textContent=title;$('modalBody').innerHTML=body;$('modalActions').innerHTML=actions.map(a=>`<button class="${a[2]||''}" onclick="${a[1]}">${a[0]}</button>`).join('');$('backdrop').classList.add('open')}
+function closeModal(){$('backdrop').classList.remove('open')}
+function confirmBuy(){if(!purchase)return;if(coins<purchase.cost){closeModal();toast('Vous n’avez pas assez de jetons.','bad');return}let p=purchase;coins-=p.cost;purchase=null;save();closeModal();toast('Achat de démonstration confirmé : '+p.name+'. Aucun changement Discord effectué.','good')}
+function replay(){if(spinning){toast('La partie est encore en cours.');return}closeModal();play(lastGame)}
+function saveName(){let n=$('nameInput').value.trim();if(!n){toast('Choisissez un pseudo non vide.','bad');return}username=n.slice(0,20);localStorage.setItem('hm3name',username);save();closeModal();toast('Pseudo local enregistré.','good')}
+function refreshBoard(){closeModal();openModal('leaderboard');toast('Classement local actualisé.','good')}
+function saveInvite(){let u=$('inviteInput').value.trim();if(!u){toast('Ajoutez un lien d’invitation.','bad');return}try{let url=new URL(u);if(url.protocol!=='https:'||!(url.hostname==='discord.gg'||url.hostname==='discord.com'||url.hostname==='www.discord.com'))throw 0;localStorage.setItem('hm3invite',url.href);closeModal();toast('Lien Discord enregistré localement.','good');openModal('discordLink')}catch(e){toast('Utilisez un lien Discord HTTPS valide.','bad')}}
+/* A saved invite gets its own confirmation panel, and only opens after explicit click. */
+const _openModal=openModal;
+openModal=function(type){if(type==='discordLink'){const u=localStorage.getItem('hm3invite');$('modal').className='modal discordmodal';$('modalTitle').textContent='LIEN DU CLUB';$('modalBody').innerHTML=`<p>Invitation enregistrée sur cet appareil :</p><p style="overflow-wrap:anywhere">${esc(u||'')}</p><p class="fine">Confirmez pour ouvrir ce lien dans un nouvel onglet.</p>`;$('modalActions').innerHTML=`<button class="secondary" onclick="closeModal()">Annuler</button><button onclick="openInvite()">Ouvrir Discord ↗</button>`;$('backdrop').classList.add('open');return}_openModal(type)}
+function openInvite(){let u=localStorage.getItem('hm3invite');if(u)window.open(u,'_blank','noopener,noreferrer');closeModal()}
+function prepareSupport(){let subject=$('supportSubject').value.trim(),message=$('supportMessage').value.trim();if(!message){toast('Écrivez votre message avant de continuer.','bad');return}sessionStorage.setItem('hm3support',JSON.stringify({subject,message}));closeModal();openModal('supportPreview')}
+function copySupport(){let m=JSON.parse(sessionStorage.getItem('hm3support')||'{}'),txt=(m.subject||'Demande')+'\n\n'+(m.message||'');if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(txt).then(()=>{closeModal();toast('Brouillon copié.','good')}).catch(()=>toast('Copie non disponible sur ce navigateur.','bad'));else toast('Copie non disponible sur ce navigateur.','bad')}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+$('backdrop').addEventListener('click',e=>{if(e.target===$('backdrop')&&!spinning)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!spinning)closeModal()});
+render();updateBonus();
+</script></body></html>
