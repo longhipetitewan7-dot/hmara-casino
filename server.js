@@ -119,6 +119,17 @@ app.get("/health", (req, res) => {
   res.status(200).send("OK");
 });
 
+app.get("/api/me", (req, res) => {
+  if (!req.session || !req.session.user) {
+    return res.status(401).json({ loggedIn: false });
+  }
+
+  res.json({
+    loggedIn: true,
+    user: req.session.user
+  });
+});
+
 function escapeHtml(value = "") {
   return String(value).replace(/[&<>"']/g, char => ({
     "&": "&amp;",
