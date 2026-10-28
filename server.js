@@ -1,4 +1,3 @@
-
 require("dotenv").config();
 
 const express = require("express");
@@ -12,13 +11,14 @@ const path = require("node:path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const FRONTEND_URL =
-  process.env.FRONTEND_URL ||
-  "https://hmara-casino-eq5f.onrender.com";
-
+// Le site et l'API sont sur la même adresse (le même service Render).
 const BACKEND_URL =
   process.env.BACKEND_URL ||
   "https://hmara-casinofr.onrender.com";
+
+const FRONTEND_URL =
+  process.env.FRONTEND_URL ||
+  BACKEND_URL;
 
 const CALLBACK_URL =
   process.env.DISCORD_CALLBACK_URL ||
@@ -199,6 +199,11 @@ function publicUser(user) {
 function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+// Affiche le site (index.html) quand on ouvre l'adresse principale.
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
 
 // Vérification de l'état de service.
 app.get("/health", (req, res) => {
@@ -469,126 +474,4 @@ app.post("/api/game", requireLogin, (req, res) => {
     }
 
     result.playerTotal = playerTotal;
-    result.dealerTotal = dealerTotal;
-  }
-
-  if (!Number.isSafeInteger(gain)) {
-    return res.status(400).json({ error: "Gain invalide." });
-  }
-
-  won = gain > bet;
-
-  const newCoins = user.coins - bet + gain;
-  const newWins = user.wins + (won ? 1 : 0);
-  const newPlayed = user.played + 1;
-
-  const transaction = db.transaction(() => {
-    updateBalance.run(newCoins, newWins, newPlayed, user.id);
-    logTransaction(user.id, "game", gain - bet, {
-      game,
-      bet,
-      gain,
-      result
-    });
-  });
-
-  transaction();
-
-  res.json({
-    ok: true,
-    game,
-    bet,
-    gain,
-    won,
-    balance: newCoins,
-    wins: newWins,
-    played: newPlayed,
-    message,
-    result
-  });
-});
-
-// Bonus personnel, partagé entre appareils.
-app.post("/api/bonus", requireLogin, (req, res) => {
-  const user = getUser.get(req.session.userId);
-  if (!user) return res.status(404).json({ error: "Profil introuvable." });
-
-  const cooldown = 6 * 60 * 60 * 1000;
-  const remaining = cooldown - (Date.now() - user.last_bonus);
-
-  if (remaining > 0) {
-    return res.status(400).json({
-      error: "Le cadeau n'est pas encore disponible.",
-      remaining
-    });
-  }
-
-  const now = Date.now();
-  const coins = user.coins + 500;
-
-  const transaction = db.transaction(() => {
-    db.prepare(
-      "UPDATE users SET coins = ?, last_bonus = ? WHERE id = ?"
-    ).run(coins, now, user.id);
-
-    logTransaction(user.id, "bonus", 500);
-  });
-
-  transaction();
-
-  res.json({ ok: true, balance: coins, bonus: 500, lastBonus: now });
-});
-
-// Boutique : les articles restent virtuels tant qu'une intégration Discord
-// spécifique et des permissions sûres ne sont pas configurées.
-const SHOP = {
-  "Rôle Kicker": 2000,
-  "Ban · 2 min": 5000,
-  "Mute · 2 min": 2000,
-  "Mute casque": 3000,
-  "Rôle VIP": 10000
-};
-
-app.post("/api/shop", requireLogin, (req, res) => {
-  const name = req.body?.name;
-  const cost = SHOP[name];
-
-  if (!cost) {
-    return res.status(400).json({ error: "Article inconnu." });
-  }
-
-  const user = getUser.get(req.session.userId);
-
-  if (!user || user.coins < cost) {
-    return res.status(400).json({ error: "Solde insuffisant." });
-  }
-
-  const transaction = db.transaction(() => {
-    db.prepare("UPDATE users SET coins = coins - ? WHERE id = ?")
-      .run(cost, user.id);
-
-    logTransaction(user.id, "shop", -cost, { name });
-  });
-
-  transaction();
-
-  const updated = getUser.get(user.id);
-
-  res.json({
-    ok: true,
-    item: name,
-    cost,
-    balance: updated.coins,
-    message: "Achat enregistré. Aucun rôle ni sanction Discord appliqué."
-  });
-});
-
-app.use((err, req, res, next) => {
-  console.error(err);
-  if (res.headersSent) return next(err);
-  res.status(500).json({ error: "Erreur serveur." });
-});
-
-app.listen(PORT, () => {
-  console.log(`HMARA API démarrée sur le port ${PORT}`);
-});
+    result.dealerTotal =
